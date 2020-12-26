@@ -1,7 +1,53 @@
-import React from 'react'
+import React,{useRef,useEffect} from 'react'
 import {NavLink} from 'react-router-dom';
+import $ from 'jquery';
+import {useDispatch,useSelector} from 'react-redux';
+import { signup,login } from "../redux/middleware/authThunks";
+import {auth} from '../auth/firebaseManagment';
+
 
 export default function Navbar() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        auth.onAuthStateChanged(user=> {
+            if(user===null)
+                return;
+            dispatch({type: 'login/completed',payload: {current_user:user}})
+        })
+    }, []);
+
+
+    const signupEmailRef = useRef();
+    const signupPasswordRef = useRef();
+    const signupPasswordConfirmRef = useRef();
+    const loginEmailRef = useRef();
+    const loginPasswordRef = useRef();
+
+    const handleSignup = e => {
+        e.preventDefault();
+        if(signupPasswordRef.current.value !== signupPasswordConfirmRef.current.value)
+        {
+            alert("passwords don't match");
+            return;
+        }
+
+        dispatch(signup(signupEmailRef.current.value,signupPasswordRef.current.value));
+        $('#signUpModal').modal('hide');
+        e.target.reset();
+    }
+    const handleLogin = e => {
+        e.preventDefault();
+        dispatch(login(loginEmailRef.current.value,loginPasswordRef.current.value));
+        $('#loginFormModal').modal('hide');
+        e.target.reset();
+    }
+
+
+
+    const authStatus = useSelector( state => state.auth.status );
+    const current_user = useSelector( state => state.auth.current_user );
+
     return (
         <>
             <div>
@@ -19,11 +65,24 @@ export default function Navbar() {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/carView'>View Cars</NavLink>
                             </li>
-                            </ul>
-                            <div className="form-inline my-2 my-lg-0">
-                                <button className="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#loginFormModal">Login</button>
-                                <button className="btn btn-outline-success my-2 my-sm-0 ml-2"  data-toggle="modal" data-target="#signUpModal">Sign Up</button>
-                            </div>
+                                {
+                                    authStatus !== 'successful' 
+                                    ?
+                                    <>
+                                    <button className="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#loginFormModal">Login</button>
+                                    <button className="btn btn-outline-success my-2 my-sm-0 ml-2"  data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+                                    </>
+                                    :
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {current_user ? current_user.email: ""}
+                                        </a>
+                                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a className="dropdown-item" href="#" onClick={()=>{auth.signOut();dispatch({type: 'loggedOut'})}}>Logout</a>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>    
                         </div>
                     </nav>
             </div>
@@ -38,23 +97,23 @@ export default function Navbar() {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <form>
+                                <form onSubmit={handleSignup}>
                                     <div className="form-group row">
-                                        <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
+                                        <label htmlFor="signup-email" className="col-sm-2 col-form-label">Email</label>
                                         <div className="col-sm-10">
-                                            <input type="email" className="form-control" id="email" placeholder="Email" />
+                                            <input type="email" ref={signupEmailRef} className="form-control" id="signup-email" placeholder="Email" />
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
+                                        <label htmlFor="signup-password" className="col-sm-2 col-form-label">Password</label>
                                         <div className="col-sm-10">
-                                            <input type="password" className="form-control" id="password" placeholder="Password" />
+                                            <input type="password" ref={signupPasswordRef} className="form-control" id="signup-password" placeholder="Password" />
                                         </div>
                                     </div>
                                     <div className="form-group row">
-                                        <label htmlFor="confirm-password" className="col-sm-2 col-form-label">Confirm Password</label>
+                                        <label htmlFor="signup-confirm-password" className="col-sm-2 col-form-label">Confirm Password</label>
                                         <div className="col-sm-10">
-                                            <input type="password" className="form-control" id="confirm-password" placeholder="Re type password" />
+                                            <input type="password" ref={signupPasswordConfirmRef} className="form-control" id="signup-confirm-password" placeholder="Re type password" />
                                         </div>
                                     </div>
                                     <div className="form-group row">
@@ -78,17 +137,17 @@ export default function Navbar() {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onSubmit = {handleLogin}>
                                 <div className="form-group row">
-                                    <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
+                                    <label htmlFor="loginEmail" className="col-sm-2 col-form-label">Email</label>
                                     <div className="col-sm-10">
-                                        <input type="email" className="form-control" id="email" placeholder="Email" />
+                                        <input type="email" ref={loginEmailRef} className="form-control" id="loginEmail" placeholder="Email" />
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
+                                    <label htmlFor="loginPassword" className="col-sm-2 col-form-label">Password</label>
                                     <div className="col-sm-10">
-                                        <input type="password" className="form-control" id="password" placeholder="Password" />
+                                        <input type="password" ref={loginPasswordRef} className="form-control" id="loginPassword" placeholder="Password" />
                                     </div>
                                 </div>
                                 <div className="form-group row">
