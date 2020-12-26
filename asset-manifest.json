@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/car-rental-system/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/car-rental-system/static/js/main.c4d91e13.chunk.js",
-    "main.js.map": "/car-rental-system/static/js/main.c4d91e13.chunk.js.map",
-    "runtime-main.js": "/car-rental-system/static/js/runtime-main.b248abce.js",
-    "runtime-main.js.map": "/car-rental-system/static/js/runtime-main.b248abce.js.map",
+    "main.css": "/car-rental-system/static/css/main.563f53f5.chunk.css",
+    "main.js": "/car-rental-system/static/js/main.7bb97566.chunk.js",
+    "main.js.map": "/car-rental-system/static/js/main.7bb97566.chunk.js.map",
+    "runtime-main.js": "/car-rental-system/static/js/runtime-main.c342b69a.js",
+    "runtime-main.js.map": "/car-rental-system/static/js/runtime-main.c342b69a.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/car-rental-system/static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.2332f2ff.chunk.js": "/car-rental-system/static/js/2.2332f2ff.chunk.js",
-    "static/js/2.2332f2ff.chunk.js.map": "/car-rental-system/static/js/2.2332f2ff.chunk.js.map",
-    "static/js/3.604c568d.chunk.js": "/car-rental-system/static/js/3.604c568d.chunk.js",
-    "static/js/3.604c568d.chunk.js.map": "/car-rental-system/static/js/3.604c568d.chunk.js.map",
+    "static/js/2.de08ccf3.chunk.js": "/car-rental-system/static/js/2.de08ccf3.chunk.js",
+    "static/js/2.de08ccf3.chunk.js.map": "/car-rental-system/static/js/2.de08ccf3.chunk.js.map",
+    "static/js/3.697475af.chunk.js": "/car-rental-system/static/js/3.697475af.chunk.js",
+    "static/js/3.697475af.chunk.js.map": "/car-rental-system/static/js/3.697475af.chunk.js.map",
     "index.html": "/car-rental-system/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/car-rental-system/static/css/2.20aa2d7b.chunk.css.map",
-    "static/css/main.ab7136cd.chunk.css.map": "/car-rental-system/static/css/main.ab7136cd.chunk.css.map",
-    "static/js/2.2332f2ff.chunk.js.LICENSE.txt": "/car-rental-system/static/js/2.2332f2ff.chunk.js.LICENSE.txt",
+    "static/css/main.563f53f5.chunk.css.map": "/car-rental-system/static/css/main.563f53f5.chunk.css.map",
+    "static/js/2.de08ccf3.chunk.js.LICENSE.txt": "/car-rental-system/static/js/2.de08ccf3.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/car-rental-system/static/media/BGpicture.b9cf38a6.jpg",
     "static/media/bugati-chiron.b036620f.png": "/car-rental-system/static/media/bugati-chiron.b036620f.png",
     "static/media/bugatiVeyron.8e332e54.png": "/car-rental-system/static/media/bugatiVeyron.8e332e54.png",
-    "static/media/lamborginiAventedor.38fd8d4b.png": "/car-rental-system/static/media/lamborginiAventedor.38fd8d4b.png",
-    "static/media/logo.6ce24c58.svg": "/car-rental-system/static/media/logo.6ce24c58.svg"
+    "static/media/lamborginiAventedor.38fd8d4b.png": "/car-rental-system/static/media/lamborginiAventedor.38fd8d4b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b248abce.js",
+    "static/js/runtime-main.c342b69a.js",
     "static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.2332f2ff.chunk.js",
-    "static/css/main.ab7136cd.chunk.css",
-    "static/js/main.c4d91e13.chunk.js"
+    "static/js/2.de08ccf3.chunk.js",
+    "static/css/main.563f53f5.chunk.css",
+    "static/js/main.7bb97566.chunk.js"
   ]
 }
