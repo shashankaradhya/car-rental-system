@@ -42,7 +42,7 @@ function CarView({car}) {
     return( 
         <div className="mt-3 col-md-4 col-sm-6 col-12">
                 <div className="card" style={{width: "18rem"}}>
-                <img className="card-img-top" src={car.image} alt="Card image cap" />
+                <img className="card-img-top" src={car.image} alt="Card cap" />
                 <div className="card-body">
                     <h5 className="card-title">{car.name}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">{car.brand}</h6>
