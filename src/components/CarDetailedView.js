@@ -21,7 +21,7 @@ export default function CarDetailedView({ match }) {
                     <p>{carWithId.description}</p>
                 </div>
             </div>
-            <BookingFormComponent />
+            <BookingFormComponent carId={carWithId.id}/>
             </>
         );
     }

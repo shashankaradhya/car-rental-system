@@ -10,3 +10,9 @@ export function fetchAllCars() {
         }).then(resp => { dispatch({ type: "carManagment/carDataFetched", payload: resp.data }) })
     }
 }
+
+export function putBooking(obj) {
+    return (dispatch,getState) => {
+        axios.post(`${urlLocal}/addNewBooking`,obj);
+    }
+}
