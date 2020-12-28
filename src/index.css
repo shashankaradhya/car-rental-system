@@ -10,7 +10,26 @@ code {
 }
 
 .jumbotron {
-    background: 'none' !important; 
+    background: 'none' !important;
     color: 'white' !important;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.react-datetime-picker__inputGroup__input {
+    color: white !important;
+}
+
+.react-datetime-picker__inputGroup__divider {
+    color: white !important;
+}
+
+.react-datetime-picker__inputGroup__divider {
+    color: white !important;
+}
+
+svg {
+    width: 19;
+    height: 19;
+    stroke: white;
+    stroke-width: 2;
 }

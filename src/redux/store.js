@@ -4,10 +4,12 @@ import thunk from 'redux-thunk';
 
 import authReducer from "./reducers/authReducers";
 
+import carManagmentReducer from "./reducers/carManagmentReducers";
 
 
 const rootReducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    carManagment: carManagmentReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(

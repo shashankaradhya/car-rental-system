@@ -62,9 +62,16 @@ export default function Navbar() {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/'>Home</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to='/carView'>View Cars</NavLink>
-                            </li>
+                            {
+                                authStatus ==='successful' ?
+                                (
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to='/carView'>View Cars</NavLink>
+                                </li>
+                                )
+                                :
+                                ''
+                            }
                                 {
                                     authStatus !== 'successful' 
                                     ?
