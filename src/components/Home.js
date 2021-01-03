@@ -1,4 +1,5 @@
 import React from 'react'
+import AdminComponent from './AdminComponent';
 
 export default function Home() {
     return (
@@ -17,6 +18,7 @@ export default function Home() {
                 <p>The Car Rental System is being developed for customers so that they can  book their vehicles when they required .</p>
                 </div> 
             </div>
+            <AdminComponent />
         </body>
     )
 }

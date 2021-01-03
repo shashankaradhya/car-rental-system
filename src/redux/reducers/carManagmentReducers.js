@@ -18,6 +18,20 @@ export default function carManagmentReducer(state = { cars: [] }, action) {
                     cars: action.payload
                 })
             }
+        case "carManagment/usersDataFetched":
+            {
+                return({
+                    ...state,
+                    users: action.payload
+                })
+            }
+        case "carManagment/bookingsDataFetched":
+            {
+                return({
+                    ...state,
+                    bookings: action.payload
+                })
+            }
         default:
             return (state)
     }

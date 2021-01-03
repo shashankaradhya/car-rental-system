@@ -23,6 +23,7 @@ export default function BookingFormComponent({carId}) {
             pickupLocation: pickUpLocation
         }));
         setPickUpLocation('');
+        alert("Booking added");
     }
     return (
         <>

@@ -3,7 +3,9 @@ import axios from 'axios';
 
 
 
-const urlLocal = "http://127.0.0.1:5000";
+const url ="http://127.0.0.1:5000";
+// const url = "https://mysterious-anchorage-28401.herokuapp.com";
+
 
 export const signup = (email, password) => {
     return (dispatch, getState) => {
@@ -11,7 +13,7 @@ export const signup = (email, password) => {
         dispatch({ type: "signup/pending" })
         auth.createUserWithEmailAndPassword(email, password).then(user => {
             dispatch({ type: "signup/completed", payload: user.user });
-            axios.post(`${urlLocal}/addNewUser`,{
+            axios.post(`${url}/addNewUser`,{
                 id: user.user.uid,
                 email: user.user.email
             })
